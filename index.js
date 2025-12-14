@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 // 🔐 token que você vai usar na Meta
-const VERIFY_TOKEN = "meu_token_whatsapp";
+const VERIFY_TOKEN = "EAAQ2VxGn1QcBQJggDXxPv6D0n6XeyZCwJxZBdE6NGvg2pQBriFoSPybP2a79KVlse6VUuENvBZCZAPXEMEqidqHlk7WHLLzE3Id6qLumWelbrDGnMqbcuZAZCD6NjgEGKsPr4YRtYZBVcKUq1tpe3wnyZBWQSH2kes6ZAOkDvJ7RZABlOb5HeX030kI8YgFpyituRJtkDQOBpWWTuZAIKCB9vRlhBmO0Jz7Xqd88zakx5PGWd49WoUNUZA6AyRwlJYBB8itG9XS0MKomBuqG20T0r75fyyyX";
 
 // 🔹 Rota de verificação (OBRIGATÓRIA)
 app.get("/webhook", (req, res) => {
@@ -32,3 +32,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Webhook rodando na porta ${PORT}`);
 });
+
