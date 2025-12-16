@@ -21,9 +21,28 @@ app.get("/webhook", (req, res) => {
 });
 
 // 🔹 Rota que recebe mensagens
+// app.post("/webhook", (req, res) => {
+//   console.log("📩 Evento recebido:");
+//   console.dir(req.body, { depth: null });
+
+//   res.sendStatus(200);
+// });
+
 app.post("/webhook", (req, res) => {
   console.log("📩 Evento recebido:");
   console.dir(req.body, { depth: null });
+
+  const entry = req.body.entry?.[0];
+  const changes = entry?.changes?.[0];
+  const message = changes?.value?.messages?.[0];
+
+  if (message) {
+    const from = message.from;
+    const text = message.text?.body;
+
+    console.log("📞 De:", from);
+    console.log("💬 Mensagem:", text);
+  }
 
   res.sendStatus(200);
 });
